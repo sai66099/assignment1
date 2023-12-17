@@ -33,7 +33,7 @@
 
 .nav-container{
     display:flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
 }
 
@@ -69,5 +69,12 @@
 }
 
 .grid-view{
+    display:flex;
     flex-wrap:wrap;
+}
+
+
+.list-container-grid-view{
+    flex-direction: column;
+    justify-content: start;
 }

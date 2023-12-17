@@ -2,7 +2,11 @@ const listContainer = document.getElementById("collectionContainer")
 const gridButton  = document.getElementById("gridView")
 const listButton = document.getElementById("listView")
 const mainCont = document.getElementById("main")
-console.log(this)
+// console.log(this)             // delete 
+// console.log(gridButton)       // delete
+
+
+
 
 const collectionList = (collection)=>{
 const listElement  = document.createElement("li")
@@ -13,14 +17,22 @@ const nameElement = document.createElement("h1")
 const sizeContainer = document.createElement("ul")
 
 
-console.log(listContainer)
+gridButton.onclick = ()=>{
+    listContainer.classList.add("grid-view")
+    listElement.classList.add("list-container-grid-view")
+}
+
+listButton.onclick = ()=>{
+    listContainer.classList.remove("grid-view")
+    listElement.classList.remove("list-container-grid-view")
+}
+
+// console.log(listContainer)         //delete
 
 listElement.classList.add("list-container")
 listContainer.appendChild(listElement)
 
-
 listElement.appendChild(imageContainerElement)
-
 
 imageElement.classList.add("image-class")
 imageElement.src = collection.productImage
@@ -29,13 +41,13 @@ imageContainerElement.appendChild(imageElement)
 
 listElement.appendChild(infoContainerElement)
 
-
 nameElement.textContent = collection.productTitle
 nameElement.classList.add("title-class")
 infoContainerElement.appendChild(nameElement)
 infoContainerElement.appendChild(sizeContainer)
 
 infoContainerElement.classList.add("info-container")
+
 for (let a in collection.productVariants){
     const element = document.createElement("li")
     element.classList.add("size-element")
@@ -43,7 +55,6 @@ for (let a in collection.productVariants){
     sizeContainer.appendChild(element)
 }  
 }
-
 
 function convertObjectToCamelCase(value){
     const collections = {
